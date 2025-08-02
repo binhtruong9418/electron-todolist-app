@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Todo List App</title>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="app">
+      <header class="header">
+        <h1>📝 My Todo List</h1>
+        <div class="stats">
+          <span id="total-count">0 tasks</span>
+          <span id="completed-count">0 completed</span>
+        </div>
+      </header>
+
+      <main class="main">
+        <form id="todo-form" class="todo-form">
+          <input
+            type="text"
+            id="todo-input"
+            class="todo-input"
+            placeholder="What needs to be done?"
+            maxlength="200"
+            required
+          />
+          <button type="submit" class="add-btn">Add Task</button>
+        </form>
+
+        <div class="filter-tabs">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="active">Active</button>
+          <button class="filter-btn" data-filter="completed">Completed</button>
+        </div>
+
+        <ul id="todo-list" class="todo-list"></ul>
+
+        <div class="empty-state" id="empty-state" style="display: none;">
+          <div class="empty-icon">📋</div>
+          <h3>No tasks yet</h3>
+          <p>Add a task above to get started!</p>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <button id="clear-completed" class="clear-btn" style="display: none;">
+          Clear Completed
+        </button>
+      </footer>
+    </div>
+
+    <script type="module" src="src/renderer.ts"></script>
+  </body>
+</html>
